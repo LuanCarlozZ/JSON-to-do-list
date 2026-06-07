@@ -1,16 +1,33 @@
+import json
 
 def adicionar_tarefas(tarefas):
     titulo = input('Digite o nome da tarefa: ').strip()
-
+    if not titulo:
+        print('Digite uma Tarefa!')
+        return
     tarefa = {
         "titulo": titulo,
         "status": False
     }
 
     tarefas.append(tarefa)
+    salvar_tarefas(tarefas)
 
     print('Tarefa adicionada com sucesso!')
-tarefas =[]
+
+
+def salvar_tarefas(tarefas):
+    with open('tarefas.json', 'w') as arquivo:
+        json.dump(tarefas, arquivo, indent=4)
+
+
+def carregar_tarefas():
+        try: 
+            with open('tarefas.json', 'r') as arquivo:
+                tarefas = json.load(arquivo)
+                return tarefas
+        except FileNotFoundError:
+                return []
 
 
 
@@ -42,7 +59,11 @@ def concluir_tarefas(tarefas):
          return
         indice_real = num_tarefa -1
         if indice_real >= 0 and indice_real < len(tarefas):
+            if tarefas[indice_real]['status']:
+                print('Essa tarefa já está concluída!')
+                return
             tarefas[indice_real]['status'] = True
+            salvar_tarefas(tarefas)
             print('Tarefa concluida com sucesso!')
         else: 
             print('Número de tarefa inválido!')
@@ -63,12 +84,14 @@ def remover_tarefas(tarefas):
         indice_real = num_tarefa - 1
         if indice_real >= 0 and indice_real < len(tarefas):
             tarefas.pop(indice_real)
+            salvar_tarefas(tarefas)
             print('Tarefa removida com sucesso!')
         else:
             print('Número de tarefa inválido!')
 
-
-
+    
+    
+tarefas = carregar_tarefas()
 
 while True:
     print('\n ===== TO-DO LIST ======')
