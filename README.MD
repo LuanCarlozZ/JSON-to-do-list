@@ -1,44 +1,65 @@
-# To-Do List em Python
+# 📝 To-Do List em Python
 
-Projeto simples de lista de tarefas desenvolvido em Python no terminal.
+Projeto de lista de tarefas desenvolvido em Python com persistência de dados em JSON.
 
-## Funcionalidades
+## 🚀 Funcionalidades
 
 * Adicionar tarefas
 * Listar tarefas
-* Concluir tarefas
+* Marcar tarefas como concluídas
 * Remover tarefas
-* Validação de entrada do usuário
-* Tratamento de erros
+* Salvar tarefas automaticamente em arquivo JSON
+* Carregar tarefas salvas ao iniciar o programa
+* Validação de entradas do usuário
+* Tratamento de erros com `try/except`
 
-## Tecnologias utilizadas
+## 🛠️ Tecnologias utilizadas
 
 * Python 3
+* JSON
 
-## Conceitos praticados
+## 📂 Estrutura dos dados
+
+As tarefas são armazenadas em um arquivo `tarefas.json`.
+
+Exemplo:
+
+```json
+[
+    {
+        "titulo": "Estudar Python",
+        "status": true
+    },
+    {
+        "titulo": "Aprender JSON",
+        "status": false
+    }
+]
+```
+
+## 📋 Menu
+
+```text
+===== TO-DO LIST =====
+
+1 - Adicionar Tarefa
+2 - Listar tarefas
+3 - Concluir Tarefa
+4 - Remover Tarefa
+5 - Sair
+```
+
+## 🎯 Objetivo do projeto
+
+Este projeto foi desenvolvido com o objetivo de praticar:
 
 * Funções
-* Listas
-* Dicionários
-* Estruturas condicionais
-* Loops
-* Tratamento de exceções (`try/except`)
-* Manipulação de dados
+* Listas e dicionários
+* Manipulação de arquivos
+* Persistência de dados com JSON
+* Tratamento de exceções
+* Lógica de programação
 
-## Como executar
+## 👨‍💻 Autor
 
-1. Clone o repositório:
-
-```bash
-git clone LINK_DO_REPOSITORIO
-```
-
-2. Execute o arquivo:
-
-```bash
-python main.py
-```
-
-## Objetivo do projeto
-
-Projeto desenvolvido com foco em prática de lógica de programação e construção de sistemas simples utilizando Python.
+Luan Carlos
